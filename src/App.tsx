@@ -1,14 +1,8 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { Transition } from "./components";
+import Router from "./routes/Router";
 
 function App() {
-  return (
-    <div className="App">
-      <Transition />
-    </div>
-  );
+  return <Router />;
 }
 
 export default App;
