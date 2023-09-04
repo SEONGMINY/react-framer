@@ -1,4 +1,3 @@
-import "../styles/baseStyles.css";
 import { motion } from "framer-motion";
 
 const TransitionMotion = () => {
