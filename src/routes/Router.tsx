@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { DragModal, Layout, Transition } from "../components";
+import { Checkbox, DragModal, Layout, Transition } from "../components";
 
 const Router = () => {
   return (
@@ -7,6 +7,7 @@ const Router = () => {
       <Route path="/" element={<Layout />}>
         <Route path="/transition" element={<Transition />} />
         <Route path="/dragModal" element={<DragModal />} />
+        <Route path="/checkbox" element={<Checkbox />} />
       </Route>
     </Routes>
   );
