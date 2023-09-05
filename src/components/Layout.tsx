@@ -8,7 +8,14 @@ const Layout = () => {
         <NavLink to="/dragModal">dragModal</NavLink>
         <NavLink to="/checkbox">checkbox</NavLink>
       </nav>
-      <div>
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Outlet />
       </div>
     </div>

@@ -2,16 +2,28 @@ import { motion } from "framer-motion";
 
 const Checkbox = () => {
   return (
-    <svg width="90" height="90" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <motion.svg
+      width="90"
+      height="90"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      initial={{ y: 1000 }}
+      animate={{ y: 0 }}
+      transition={{
+        type: "spring",
+        damping: 10,
+        stiffness: 100,
+      }}
+    >
       <motion.circle
         fill="#007AFF"
         opacity="0.75"
         cx="45"
         cy="45"
         r="45"
-        initial={circleInit}
-        animate={circleAnimate}
-        transition={circleTransition}
+        // initial={circleInit}
+        // animate={circleAnimate}
+        // transition={circleTransition}
       />
       <motion.path
         d="M29.6 44.5L39.6 54L60.6 35"
@@ -23,7 +35,7 @@ const Checkbox = () => {
         animate={checkboxAnimate}
         transition={checkboxTransition}
       />
-    </svg>
+    </motion.svg>
   );
 };
 
@@ -36,8 +48,8 @@ const circleAnimate = {
 };
 
 const circleTransition = {
-  duration: 0.8,
-  delay: 0.3,
+  duration: 1.2,
+  delay: 1,
   ease: [0, 0.71, 0.2, 1.01],
 };
 
@@ -52,7 +64,7 @@ const checkboxAnimate = {
 };
 
 const checkboxTransition = {
-  delay: 0.5,
+  delay: 0.7,
   duration: 0.3,
 };
 
