@@ -1,6 +1,19 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const Checkbox = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const ani = setTimeout(() => {
+      setIsVisible(false);
+    }, 2000);
+
+    return () => {
+      clearTimeout(ani);
+    };
+  }, []);
+
   return (
     <motion.svg
       width="90"
@@ -8,10 +21,11 @@ const Checkbox = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       initial={{ y: 1000 }}
-      animate={{ y: 0 }}
+      animate={isVisible ? "active" : "inActive"}
+      variants={svgVariant}
       transition={{
         type: "spring",
-        damping: 10,
+        damping: 13,
         stiffness: 100,
       }}
     >
@@ -28,15 +42,24 @@ const Checkbox = () => {
       <motion.path
         d="M29.6 44.5L39.6 54L60.6 35"
         stroke="white"
-        stroke-width="4.6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="4.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         initial={checkboxInit}
         animate={checkboxAnimate}
         transition={checkboxTransition}
       />
     </motion.svg>
   );
+};
+
+const svgVariant = {
+  active: {
+    y: 0,
+  },
+  inActive: {
+    y: 1000,
+  },
 };
 
 const circleInit = {
